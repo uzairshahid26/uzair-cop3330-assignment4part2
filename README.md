@@ -20,4 +20,4 @@ Completed: This column shows if the item has been marked as complete.
 
 Delete To Do Item: This allows you to delete the to-do item that you currently have highlighted in the To-Do List View.
 
-Delete All: This will delete the whole To-Do List.
+Delete All: This will Reset and clear the whole To-Do List.
