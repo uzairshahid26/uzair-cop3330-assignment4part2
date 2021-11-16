@@ -1,0 +1,122 @@
+/*
+ *  UCF COP3330 Fall 2021 Assignment 4 Solution
+ *  Copyright 2021 Muhammad Uzair
+ */
+
+@startuml
+'https://plantuml.com/class-diagram
+
+class app {
+    root: Parent;
+    scene: Scene;
+
+    main()
+    start()
+}
+
+class AppController {
+    model: AppModel
+
+    tableView: TableView
+    colDescription: TableColumn
+    colDueDate: TableColumn
+    colCompleted: TableColumn
+    colDueDateFormatted: TableColumn
+
+    txtNewDescription: TextField
+    dtNewDueDate: DatePicker
+    chkbxNewCompleted: CheckBox
+
+    showCompleted: Boolean
+    showIncomplete: Boolean
+
+    refreshToDoItems()
+    getItemsToDisplay()
+    btnLoadClicked()
+    btnDeleteToDoItemClicked()
+    btnNewItemClicked()
+    btnCreateNewListClicked()
+    btnSaveListClicked()
+    chkbxShowCompletedClicked()
+    chkbxShowIncompleteClicked()
+    colDescriptionUpdate()
+    colDueDateUpdate()
+    colCompletedUpdate()
+    convertLocalDateToGreg()
+    initialize()
+}
+
+class AppModel {
+    toDoList: ToDoList
+
+    getToDoList()
+    setToDoList()
+    loadList()
+    checkForDir()
+    checkForFile()
+    saveList()
+    loadFiles()
+}
+
+class ToDoList {
+    title: String
+    toDoItems: Collection
+
+    getGregNow()
+    getBlankList()
+
+    ToDoList()
+    ToDoList(String)
+
+    getTitle()
+    setTitle()
+    getToDoItems()
+    getCompletedToDoItems()
+    getIncompleteToDoItems()
+    setToDoItems()
+    addItem()
+    removeItem()
+}
+
+class ToDoItem {
+    desc: String
+    dueDate: String
+    complete: boolean
+    dueDateFormat: LocalDate
+
+    ToDoItem(String, GregorianCalendar, boolean)
+    ToDoItem(String)
+
+    getDesc()
+    setDesc()
+    getDueDate()
+    setDueDate()
+    getComplete()
+    setComplete()
+    itemCompare()
+}
+
+class LoadFile {
+    files: ArrayList<String>
+    lvFilesItems: ListView<String>
+
+    loadList()
+    loadFiles()
+    getObservableFileList()
+    initialize()
+}
+
+class NewFile {
+    btnCreateListClicked()
+}
+
+app -- AppController
+AppController -- AppModel
+AppController -- ToDoList
+AppController -- ToDoItem
+AppController -- LoadFile
+AppController -- NewFile
+AppModel -- ToDoList
+ToDoList -- ToDoItem
+
+@enduml

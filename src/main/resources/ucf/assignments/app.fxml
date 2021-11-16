@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.AppController">
+    <left>
+        <AnchorPane prefHeight="359.0" prefWidth="619.0" BorderPane.alignment="CENTER">
+            <children>
+                <BorderPane prefHeight="359.0" prefWidth="618.0">
+                    <center>
+                        <HBox prefHeight="286.0" prefWidth="626.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <TableView fx:id="tableView" editable="true" prefHeight="286.0" prefWidth="614.0">
+                                    <columns>
+                                        <TableColumn fx:id="colDescription" prefWidth="331.0" text="Description" />
+                                        <TableColumn fx:id="colDueDate" minWidth="3.0" prefWidth="79.0" text="Due Date" />
+                                        <TableColumn fx:id="colCompleted" prefWidth="75.0" text="Completed" />
+
+                                        <!--<TableColumn fx:id="colDescription" onEditCommit="#colDescriptionUpdate" prefWidth="331.0" text="Description" />
+                                        <TableColumn fx:id="colDueDate" minWidth="3.0" onEditCommit="#colDueDateUpdate" prefWidth="79.0" text="Due Date" visible="false" />
+                                        <TableColumn fx:id="colDueDateFormatted" minWidth="3.0" onEditCommit="#colDueDateUpdate" prefWidth="79.0" text="Due Date" />
+                                        <TableColumn fx:id="colCompleted" onEditCommit="#colCompletedUpdate" prefWidth="75.0" text="Completed" />
+                                        -->
+                                    </columns>
+                                </TableView>
+                                <VBox alignment="CENTER" prefHeight="286.0" prefWidth="257.0">
+                                    <children>
+                                        <Button fx:id="btnDeleteToDoItem" mnemonicParsing="false" onAction="#btnDeleteToDoItemClicked" prefHeight="20.0" prefWidth="113.0" text="Delete Selected To Do Item">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                            </VBox.margin>
+                                        </Button>
+                              <Button fx:id="btnDeleteToDoAll" layoutX="19.0" layoutY="160.0" mnemonicParsing="false" onAction="#btnDeleteToDoItemAll" prefHeight="20.0" prefWidth="113.0" text="Delete All" />
+                                    </children>
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </center>
+                    <bottom>
+                        <VBox BorderPane.alignment="CENTER">
+                            <children>
+                                <HBox alignment="TOP_CENTER" prefHeight="0.0" prefWidth="422.0" />
+                                <HBox alignment="TOP_CENTER" prefHeight="25.0" prefWidth="417.0" />
+                                <HBox alignment="TOP_CENTER" />
+                            </children>
+                        </VBox>
+                    </bottom>
+                </BorderPane>
+                      <Button fx:id="btnCreateNewItem" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="399.0" mnemonicParsing="false" onAction="#btnNewItemClicked" prefHeight="29.0" prefWidth="150.0" text="Create New Item">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+                      <TextField fx:id="txtNewDescription" alignment="TOP_LEFT" layoutX="14.0" layoutY="360.0" prefHeight="29.0" prefWidth="258.0" promptText="Description">
+                          <padding>
+                              <Insets top="5.0" />
+                          </padding>
+                      </TextField>
+                      <CheckBox fx:id="chkbxNewCompleted" layoutX="470.0" layoutY="358.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="80.0" text="Completed" />
+                      <DatePicker fx:id="dtNewDueDate" layoutX="281.0" layoutY="360.0" prefHeight="29.0" prefWidth="174.0" promptText="Due Date" />
+                      <Label layoutX="15.0" layoutY="342.0" text="Create a New To Do Item:">
+                          <font>
+                              <Font name="Arial Bold" size="12.0" />
+                          </font>
+                      </Label>
+            </children>
+        </AnchorPane>
+    </left>
+    <top>
+        <ToolBar prefHeight="59.0" prefWidth="625.0" BorderPane.alignment="CENTER">
+            <items>
+                <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#btnLoadClicked" prefWidth="110.0" text="Load List" />
+                <Button fx:id="btnCreateNewListClicked" mnemonicParsing="false" onAction="#btnCreateNewListClicked" prefWidth="110.0" text="New List" />
+                <Button fx:id="btnSaveList" mnemonicParsing="false" onAction="#btnSaveListClicked" prefWidth="110.0" text="Save List" />
+                <CheckBox fx:id="chkbxShowCompleted" mnemonicParsing="false" onAction="#chkbxShowCompletedClicked" selected="true" text="Show Completed" />
+                <CheckBox fx:id="chkbxShowIncomplete" mnemonicParsing="false" onAction="#chkbxShowIncompleteClicked" selected="true" text="Show Incomplete" />
+            </items>
+        </ToolBar>
+    </top>
+</BorderPane>
